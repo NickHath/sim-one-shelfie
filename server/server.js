@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var massive = require("massive");
 var cors = require ("cors");
+var shelfcontrol = require ("./controllers");
 require("dotenv").config();
 
 var app = express();
@@ -21,23 +22,18 @@ app.get("/api/test", function(req, res) {
     })
 )})
 
-app.get("/api/shelf", function(req, res) {
 
-})
+app.get("/api/shelf", shelfcontrol.getBins)
 
-app.get("/api/bin", function(req, res) {
+app.get("/api/bin", shelfcontrol.getBin)
 
-})
+app.put("/api/bin", shelfcontrol.updateBin)
 
-app.put("/api/bin", function(req, res) {
+app.delete("/api/bin", shelfcontrol.deleteBin)
 
-})
-app.delete("/api/bin", function(req, res) {
+app.post("/api/bin", shelfcontrol.createBin)
 
-})
-app.post("/api/bin", function(req, res) {
 
-})
 var port = 3000;
 
 app.listen(port, console.log(`listening on port:${port}`));
