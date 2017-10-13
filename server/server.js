@@ -15,13 +15,29 @@ massive(process.env.CONNECTION_STRING)
     })
 
 
-app.get("/api/test", function(req, res){
+app.get("/api/test", function(req, res) {
     (app.get("db").test().then(test => {
         res.send(test)
     })
 )})
 
+app.get("/api/shelf", function(req, res) {
 
+})
+
+app.get("/api/bin", function(req, res) {
+
+})
+
+app.put("/api/bin", function(req, res) {
+
+})
+app.delete("/api/bin", function(req, res) {
+
+})
+app.post("/api/bin", function(req, res) {
+
+})
 var port = 3000;
 
 app.listen(port, console.log(`listening on port:${port}`));
