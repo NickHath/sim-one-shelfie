@@ -19,9 +19,7 @@ app.get("/api/test", function(req, res){
     (app.get("db").test().then(test => {
         res.send(test)
     })
-    )})
-
-
+)})
 
 
 var port = 3000;
