@@ -1,9 +1,12 @@
 module.exports = {
   getBins: (req, res) => {
-    const db = req.app.get('db');
-    db.getBins([req.query.shelf])
-      .then((bins) => res.status(200).send(bins))
-      .catch(() => res.status(500).send())
+    console.log(req.params.shelf)
+    let db = req.app.get('db');
+    db.getBins([req.params.shelf])
+      .then((bins) => {
+        res.status(200).send(bins)
+      })
+      .catch((err) => res.status(500).send(err))
   },
   getBin: (req, res) => {
     const db = req.app.get('db');

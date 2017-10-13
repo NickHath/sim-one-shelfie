@@ -1,8 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var massive = require("massive");
-var cors = require ("cors");
-var shelfcontrol = require ("./controllers");
+var cors = require("cors");
+var shelfcontrol = require("./controllers");
 require("dotenv").config();
 
 var app = express();
@@ -23,7 +23,7 @@ app.get("/api/test", function(req, res) {
 )})
 
 
-app.get("/api/shelf", shelfcontrol.getBins)
+app.get("/api/:shelf", shelfcontrol.getBins)
 
 app.get("/api/bin", shelfcontrol.getBin)
 
