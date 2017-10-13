@@ -25,13 +25,13 @@ app.get("/api/test", function(req, res) {
 
 app.get("/api/:shelf", shelfcontrol.getBins)
 
-app.get("/api/bin", shelfcontrol.getBin)
+app.get("/api/:shelf/:bin", shelfcontrol.getBin)
 
-app.put("/api/bin", shelfcontrol.updateBin)
+app.put("/api/:shelf/:bin", shelfcontrol.updateBin)
 
-app.delete("/api/bin", shelfcontrol.deleteBin)
+app.delete("/api/:shelf/:bin", shelfcontrol.deleteBin)
 
-app.post("/api/bin", shelfcontrol.createBin)
+app.post("/api/:shelf/:bin", shelfcontrol.createBin)
 
 
 var port = 3000;
