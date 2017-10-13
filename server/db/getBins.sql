@@ -1,0 +1,2 @@
+SELECT BoxID 
+FROM $1;
