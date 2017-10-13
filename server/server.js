@@ -12,7 +12,17 @@ app.use(cors());
 massive(process.env.CONNECTION_STRING)
     .then(db => {
         app.set("db", db)
-    }); 
+    })
+
+
+app.get("/api/test", function(req, res){
+    (app.get("db").test().then(test => {
+        res.send(test)
+    })
+    )})
+
+
+
 
 var port = 3000;
 
