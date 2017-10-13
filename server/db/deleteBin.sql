@@ -1,0 +1,2 @@
+DELETE FROM $1
+WHERE BoxID = $2;
