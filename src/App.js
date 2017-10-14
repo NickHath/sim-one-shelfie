@@ -20,15 +20,15 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="container">
-        <div className="nav">
-          <img />
+      <div className='container'>
+        <div className='nav'>
+          <img src='../assets/logo.png'/>
           <h1>Shelfie</h1>
         </div>
-        <div className="shelf">Shelf A</div>
-        <div className="shelf">Shelf B</div>
-        <div className="shelf">Shelf C</div>
-        <div className="shelf">Shelf D</div>
+        <div className='shelf'>Shelf A</div>
+        <div className='shelf'>Shelf B</div>
+        <div className='shelf'>Shelf C</div>
+        <div className='shelf'>Shelf D</div>
       </div>
     );
   }
