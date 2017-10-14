@@ -23,7 +23,7 @@ class Shelf extends Component {
       if (bin.name === null) {
         return <div className='shelf empty'>+ Add inventory to bin</div>
       } else {
-        return <Link to={`/${this.props.match.params.shelf}/${bin.id}`}><div className='shelf'>Bin {bin.id}</div></Link>
+        return <Link className='shelf nostyle' to={`/${this.props.match.params.shelf}/${bin.id}`}><div>Bin {bin.id}</div></Link>
       }
     })
     console.log(this.state);

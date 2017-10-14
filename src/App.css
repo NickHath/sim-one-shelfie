@@ -43,3 +43,15 @@
 .empty {
   background-color: #FFB8AF;
 }
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.nostyle {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
