@@ -25,7 +25,7 @@ class Shelf extends Component {
     let shelfEndInd = shelf.length - 1;
     let binJSX = this.state.bins.map((bin) => {
       if (bin.name === null) {
-        return <div className='shelf empty'>+ Add inventory to bin</div>
+        return <Link className='shelf empty nostyle' to={`new/${shelf}/${bin.id}`}><div>+ Add inventory to bin</div></Link>
       } else {
         return <Link className='shelf nostyle' to={`/${shelf}/${bin.id}`}><div>Bin {bin.id}</div></Link>
       }

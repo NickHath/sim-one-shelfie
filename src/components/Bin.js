@@ -68,6 +68,11 @@ class Bin extends Component {
          .then((res) => this.setState({ name: res.data[0].name, price: res.data[0].price, imageurl: res.data[0].imageurl }))
   }
 
+  deleteBin() {
+    console.log(`http://localhost:3000/api/${this.props.match.params.shelf}/${this.props.match.params.bin}`);
+    axios.delete(`http://localhost:3000/api/${this.props.match.params.shelf}/${this.props.match.params.bin}`);
+  }
+
   render() {
     let shelf = this.props.match.params.shelf, bin = this.props.match.params.bin;
     let shelfEndInd = shelf.length - 1, binEndInd = bin.length - 1;
@@ -92,16 +97,17 @@ class Bin extends Component {
                  onChange={ (e) => this.inputPrice(e) } />
           {
             this.state.editing === 'disabled' ?
-              <button onClick={ () => this.setEditing()}>Edit</button> :
-              <button onClick={ () => {
-                this.setEditing()
-                this.setName();
-                this.setPrice();
-                // this.updateDB();
-              } }>Save</button>
+              <button onClick={ () => this.setEditing() }>Edit</button> :
+              <button className='green_button'
+                      onClick={ () => {
+                        this.setEditing()
+                        this.setName();
+                        this.setPrice();
+                        // this.updateDB();
+                      } }>Save</button>
           }
           {/* Delete the entire bin, need to use SQL */}
-          <button>Delete</button>
+          <Link to={`/${shelf}`} className='nostyle' onClick={ () => this.deleteBin() }><button>Delete</button></Link>
          </div>
       </div>
     )

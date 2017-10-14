@@ -9,9 +9,9 @@ var app = express();
 
 app.use(bodyParser.json());
 // set Postman to urlencoded, too
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 app.use(cors());
 
 massive(process.env.CONNECTION_STRING)
@@ -26,6 +26,8 @@ app.get("/api/:shelf", shelfCtrl.getBins)
 app.get("/api/:shelf/:bin", shelfCtrl.getBin)
 
 app.put("/api/:shelf/:bin", shelfCtrl.updateBin)
+
+app.put("/api/new/:shelf/:bin", shelfCtrl.updateBin)
 
 app.delete("/api/:shelf/:bin", shelfCtrl.deleteBin)
 

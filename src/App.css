@@ -58,4 +58,6 @@ a.nostyle:link {
 
 img {
   margin-right: 25px;
+  max-width: 400px;
+  max-height: 800px;
 }
