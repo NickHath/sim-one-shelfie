@@ -14,7 +14,7 @@ class Shelf extends Component {
 
   componentDidMount() {
     axios.get(`http://localhost:3000/api/${this.props.match.params.shelf}`)
-         .then((res) => this.setState({bins: res.data}))
+         .then((res) => this.setState({ bins: res.data }))
   }
 
   render() {

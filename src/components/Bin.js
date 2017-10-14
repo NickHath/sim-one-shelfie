@@ -1,12 +1,14 @@
 // state: name, imageurl, price
 
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Bin.css';
 
 class Bin extends Component {
   constructor() {
     super();
     this.state = {
+      bin: {},
       name: '',
       price: null,
       tempName: '',
@@ -53,6 +55,11 @@ class Bin extends Component {
     }
   }
 
+  componentDidMount() {
+    axios.get(`http://localhost:3000/api/${this.props.match.params.shelf}/${this.props.match.params.bin}`)
+         .then((res) => this.setState({ bin: res.data }))
+  }
+
   render() {
     console.log(this.state);
     return(
@@ -61,8 +68,8 @@ class Bin extends Component {
           <div className = 'logo'>
             <img src='../assets/logo.png'/>
           </div>
-          <h1>Shelf A</h1>
-          <h1>Bin 1</h1>
+          <h1>{ this.props.match.params.shelf }</h1>
+          <h1>Bin { this.props.match.params.bin }</h1>
         </div>
         <div className='editor'>
           <img />

@@ -20,7 +20,16 @@ input {
   height: 50px;
   display: block;
   margin-bottom: 20px;
+  padding-top: 10px;
+  color: black;
+  font-size: 30px;
 }
+
+input::placeholder {
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
 
 button {
   height: 40px;
