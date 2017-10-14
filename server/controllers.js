@@ -5,7 +5,7 @@ module.exports = {
       .then((bins) => {
         res.status(200).send(bins)
       })
-      .catch((err) => res.status(500).send(err))
+      .catch(() => res.status(500).send())
   },
   getBin: (req, res) => {
     const db = req.app.get('db');
@@ -23,7 +23,8 @@ module.exports = {
   createBin: (req, res) => {
     const db = req.app.get('db');
     var { Name, Price, ImageURL } = req.body;
-    db.createBin([req.params.shelf, req.params.bin, Name, Price, ImageURL])
+    // console.log(req.body);
+    db.createBin([req.params.shelf, Name, Price, ImageURL])
       .then(() => res.status(200).send())
       .catch(() => res.status(500).send())
   },

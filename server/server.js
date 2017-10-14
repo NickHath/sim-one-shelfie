@@ -8,12 +8,18 @@ require("dotenv").config();
 var app = express();
 
 app.use(bodyParser.json());
+// set Postman to urlencoded, too
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(cors());
 
 massive(process.env.CONNECTION_STRING)
     .then(db => {
+        console.log('connected to postgres')
         app.set("db", db)
     })
+    .catch((err) => console.log(err));
 
 
 app.get("/api/test", function(req, res) {
@@ -31,7 +37,7 @@ app.put("/api/:shelf/:bin", shelfcontrol.updateBin)
 
 app.delete("/api/:shelf/:bin", shelfcontrol.deleteBin)
 
-app.post("/api/:shelf/:bin", shelfcontrol.createBin)
+app.post("/api/:shelf", shelfcontrol.createBin)
 
 
 var port = 3000;

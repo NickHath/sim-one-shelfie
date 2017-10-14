@@ -1,2 +1,2 @@
-INSERT INTO $1 (Name, Price, ImageURL)
-VALUES ($2, $3, $4);
+INSERT INTO Bins (Name, Price, ImageURL, ShelfID)
+VALUES ($2, $3, $4, $1);
