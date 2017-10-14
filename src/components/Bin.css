@@ -25,9 +25,6 @@ input {
   font-size: 30px;
 }
 
-input::placeholder {
-}
-
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 
