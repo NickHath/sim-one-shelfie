@@ -1,2 +1,2 @@
-DELETE FROM $1
-WHERE BoxID = $2;
+DELETE FROM Bins
+WHERE ID = $2 AND ShelfID = $1;

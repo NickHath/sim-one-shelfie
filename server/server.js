@@ -21,14 +21,6 @@ massive(process.env.CONNECTION_STRING)
     })
     .catch((err) => console.log(err));
 
-
-app.get("/api/test", function(req, res) {
-    (app.get("db").test().then(test => {
-        res.send(test)
-    })
-)})
-
-
 app.get("/api/:shelf", shelfcontrol.getBins)
 
 app.get("/api/:shelf/:bin", shelfcontrol.getBin)
