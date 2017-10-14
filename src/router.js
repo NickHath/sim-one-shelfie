@@ -9,7 +9,7 @@ import Bin from './components/Bin';
 export default (
   <Switch>
     <Route exact path='/' component={ Home } />
-    <Route path='' component={ Shelf } />
-    <Route path='' component={ Bin } />
+    <Route exact path='/:shelf' component={ Shelf } />
+    <Route path='/:shelf/:bin' component={ Bin } />
   </Switch>
 )

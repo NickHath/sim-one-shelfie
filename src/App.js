@@ -14,7 +14,9 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      { router }
+      <div>
+        { router }
+      </div>
     );
   }
 }
