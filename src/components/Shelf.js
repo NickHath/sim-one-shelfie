@@ -18,7 +18,14 @@ class Shelf extends Component {
   }
 
   render() {
-    let binJSX = this.state.bins.map((bin) => <div className='shelf'>Bin {bin.id}</div>)
+    let binJSX = this.state.bins.map((bin) => {
+      if (bin.name === null) {
+        return <div className='shelf empty'>+ Add inventory to bin</div>
+      } else {
+        return <div className='shelf'>Bin {bin.id}</div> 
+      }
+    })
+    console.log(this.state);
     return (
       <div className='container'>
         <div className='nav'>

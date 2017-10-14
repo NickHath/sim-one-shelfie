@@ -39,3 +39,7 @@
   align-items: center;
   padding-left: 6.5%;
 }
+
+.empty {
+  background-color: #FFB8AF;
+}

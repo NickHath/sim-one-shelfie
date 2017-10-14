@@ -1,2 +1,2 @@
-SELECT ID FROM Bins
+SELECT * FROM Bins
 WHERE lower(shelfid) = lower($1);
