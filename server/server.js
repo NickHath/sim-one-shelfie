@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var massive = require("massive");
 var cors = require("cors");
-var shelfcontrol = require("./controllers");
+var shelfCtrl = require("./controllers");
 require("dotenv").config();
 
 var app = express();
@@ -21,15 +21,15 @@ massive(process.env.CONNECTION_STRING)
     })
     .catch((err) => console.log(err));
 
-app.get("/api/:shelf", shelfcontrol.getBins)
+app.get("/api/:shelf", shelfCtrl.getBins)
 
-app.get("/api/:shelf/:bin", shelfcontrol.getBin)
+app.get("/api/:shelf/:bin", shelfCtrl.getBin)
 
-app.put("/api/:shelf/:bin", shelfcontrol.updateBin)
+app.put("/api/:shelf/:bin", shelfCtrl.updateBin)
 
-app.delete("/api/:shelf/:bin", shelfcontrol.deleteBin)
+app.delete("/api/:shelf/:bin", shelfCtrl.deleteBin)
 
-app.post("/api/:shelf", shelfcontrol.createBin)
+app.post("/api/:shelf", shelfCtrl.createBin)
 
 
 var port = 3000;
