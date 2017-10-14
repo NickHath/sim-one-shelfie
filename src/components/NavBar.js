@@ -1,1 +1,0 @@
-// NavBar takes props for styling home, shelf, or bin
