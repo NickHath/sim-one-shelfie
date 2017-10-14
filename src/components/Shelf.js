@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../logo.png';
+
 
 class Shelf extends Component {
   constructor() {
@@ -28,12 +30,11 @@ class Shelf extends Component {
         return <Link className='shelf nostyle' to={`/${shelf}/${bin.id}`}><div>Bin {bin.id}</div></Link>
       }
     })
-    console.log(this.state);
     return (
       <div className='container'>
         <div className='nav'>
           <div className = 'logo'>
-            <img src='../assets/logo.png'/>
+            <Link to='/'><img src={logo}/></Link>
           </div>
           <h1>{shelf.slice(0, shelfEndInd) + ' ' + shelf.slice(shelfEndInd)}</h1>
         </div>

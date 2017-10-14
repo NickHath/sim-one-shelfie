@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import logo from '../logo.png'
 import './Bin.css';
 
 class Bin extends Component {
@@ -73,7 +75,7 @@ class Bin extends Component {
       <div className='container'>
         <div className='nav'>
           <div className = 'logo'>
-            <img src='../assets/logo.png'/>
+            <Link to='/'><img src={logo}/></Link>
           </div>
           <h1>{ shelf.slice(0, shelfEndInd) + ' ' + shelf.slice(shelfEndInd)}</h1>
           <h1>Bin { bin.slice(0, binEndInd) + ' ' + bin.slice(binEndInd) }</h1>

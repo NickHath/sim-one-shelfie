@@ -55,3 +55,7 @@ a.nostyle:link {
   color: inherit;
   cursor: auto;
 }
+
+img {
+  margin-right: 25px;
+}
