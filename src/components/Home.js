@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../logo.png';
 
 class Home extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class Home extends Component {
     return (
       <div className='container'>
       <div className='nav'>
-        <img src='../assets/logo.png'/>
+        <img src={logo}/>
         <h1>Shelfie</h1>
       </div>
       <Link className='shelf nostyle' to='/shelfa'><div>Shelf A</div></Link>

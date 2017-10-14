@@ -19,11 +19,13 @@ class Shelf extends Component {
   }
 
   render() {
+    let shelf = this.props.match.params.shelf;
+    let shelfEndInd = shelf.length - 1;
     let binJSX = this.state.bins.map((bin) => {
       if (bin.name === null) {
         return <div className='shelf empty'>+ Add inventory to bin</div>
       } else {
-        return <Link className='shelf nostyle' to={`/${this.props.match.params.shelf}/${bin.id}`}><div>Bin {bin.id}</div></Link>
+        return <Link className='shelf nostyle' to={`/${shelf}/${bin.id}`}><div>Bin {bin.id}</div></Link>
       }
     })
     console.log(this.state);
@@ -33,7 +35,7 @@ class Shelf extends Component {
           <div className = 'logo'>
             <img src='../assets/logo.png'/>
           </div>
-          <h1>{this.props.match.params.shelf}</h1>
+          <h1>{shelf.slice(0, shelfEndInd) + ' ' + shelf.slice(shelfEndInd)}</h1>
         </div>
         { binJSX }
     </div>
