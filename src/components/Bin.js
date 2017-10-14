@@ -11,6 +11,7 @@ class Bin extends Component {
       bin: {},
       name: '',
       price: null,
+      imageurl: '',
       tempName: '',
       tempPrice: null,
       editing: 'disabled'
@@ -55,9 +56,14 @@ class Bin extends Component {
     }
   }
 
+  updateDB() {
+    axios.put(`http://localhost:3000/api/${this.props.match.params.shelf}/${this.props.match.params.bin}`,
+               {name: this.state.name, price: this.state.price, imageurl: this.state.bin.imageurl})
+  }
+
   componentDidMount() {
     axios.get(`http://localhost:3000/api/${this.props.match.params.shelf}/${this.props.match.params.bin}`)
-         .then((res) => this.setState({ bin: res.data }))
+         .then((res) => this.setState({ name: res.data[0].name, price: res.data[0].price, imageurl: res.data[0].imageurl }))
   }
 
   render() {
@@ -72,23 +78,24 @@ class Bin extends Component {
           <h1>Bin { this.props.match.params.bin }</h1>
         </div>
         <div className='editor'>
-          <img />
+          <img src={ this.state.imageurl } />
           <p>Name</p>
-          <input placeholder='Enter name'
-                 disabled={this.state.editing}
-                 onChange={(e) => this.inputName(e)} />
+          <input placeholder={ this.state.name }
+                 disabled={ this.state.editing }
+                 onChange={ (e) => this.inputName(e) } />
           <p>Price</p>
-          <input placeholder='Enter price'
-                 disabled={this.state.editing}
-                 onChange={(e) => this.inputPrice(e)} />
+          <input placeholder={ this.state.price }
+                 disabled={ this.state.editing }
+                 onChange={ (e) => this.inputPrice(e) } />
           {
             this.state.editing === 'disabled' ?
-              <button onClick={() => this.setEditing()}>Edit</button> :
-              <button onClick={() => {
+              <button onClick={ () => this.setEditing()}>Edit</button> :
+              <button onClick={ () => {
                 this.setEditing()
                 this.setName();
                 this.setPrice();
-              }}>Save</button>
+                // this.updateDB();
+              } }>Save</button>
           }
           {/* Delete the entire bin, need to use SQL */}
           <button>Delete</button>

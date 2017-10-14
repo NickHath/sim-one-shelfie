@@ -2,6 +2,7 @@
 // state: [bin1, bin2, bin3] -- objects
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Shelf extends Component {
@@ -22,7 +23,7 @@ class Shelf extends Component {
       if (bin.name === null) {
         return <div className='shelf empty'>+ Add inventory to bin</div>
       } else {
-        return <div className='shelf'>Bin {bin.id}</div> 
+        return <Link to={`/${this.props.match.params.shelf}/${bin.id}`}><div className='shelf'>Bin {bin.id}</div></Link>
       }
     })
     console.log(this.state);
